@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajouter un commentaire</title>
+    <!-- Lien vers Bootstrap pour styliser facilement -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #000000; /* Fond noir */
+            color: #ffffff; /* Texte en blanc */
+        }
+        .form-container {
+            background-color: #333333; /* Gris foncé pour le fond du formulaire */
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1); /* Ombre légère */
+            margin: 2rem auto;
+            max-width: 600px;
+        }
+        h1 {
+            color: #ffffff; /* Titre en blanc */
+            font-weight: bold;
+            text-align: center;
+        }
+        .btn-primary {
+            background-color: #007bff;
+            border: none;
+            width: 100%;
+            padding: 0.75rem;
+            font-size: 1rem;
+            border-radius: 4px;
+            transition: background-color 0.3s ease;
+        }
+        .btn-primary:hover {
+            background-color: #0056b3;
+        }
+        /* Style des champs de formulaire pour contraster avec le fond noir */
+        .form-control {
+            background-color: #444444;
+            color: #ffffff;
+            border: 1px solid #555555;
+        }
+        .form-control:focus {
+            background-color: #555555;
+            color: #ffffff;
+        }
+        label {
+            color: #ffffff;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="form-container">
+        <h1>Ajouter un commentaire</h1>
+
+        <!-- Formulaire de commentaire -->
+        <form method="post">
+            {% csrf_token %}
+            <div class="form-group">
+                {{ form.critique.label_tag }} <!-- Label du champ critique -->
+                {{ form.critique }} 
+            </div>
+            <div class="form-group">
+                {{ form.text.label_tag }} <!-- Label du champ texte -->
+                {{ form.text }}
+            </div>
+
+            <button type="submit" class="btn btn-primary">Enregistrer</button>
+        </form>
+    </div>
+</div>
+
+<!-- Lien vers Bootstrap JS et jQuery -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+</html>

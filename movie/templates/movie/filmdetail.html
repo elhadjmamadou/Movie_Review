@@ -1,0 +1,32 @@
+{% extends "./index2.html" %}
+
+{% block detail %}
+    <div class="container my-5 p-4" style="background-color: #1c1c1c; color: #f5f5f5; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);">
+        <h1 class="text-center mb-4" style="color: #f5f5f5; font-weight: bold;">Détails du Film {{ film.titre }} </h1>
+        <div class="row justify-content-center">
+            <div class="col-lg-6 col-md-8 col-sm-10">
+                <div class="product__item d-flex flex-column align-items-center">
+                    <div class="product__item__pic mb-3" style="width: 100%; overflow: hidden; border-radius: 8px;">
+                        <img src="{{ film.image.url }}" alt="Affiche de {{ film.titre }}" class="img-fluid" style="width: 100%; object-fit: cover;">
+                    </div>
+                    <div class="product__item__text text-center">
+                        <h2 style="color: #f5f5f5; font-size: 2rem; margin-bottom: 1rem;">{{ film.titre }}</h2>
+                        <p class="film-date" style="color: orange; font-size: 1.1rem;">Date de sortie : {{ film.date_sortie|date:"d M Y" }}</p>
+                        <p class="film-genre" style="margin-top: 0.5rem; font-size: 1.2rem; color: #e0e0e0;">Genre : {{ film.genre }}</p>
+                        <div class="film-details my-3" style="font-size: 1rem;">
+                            <p class="film-status">Statut : <span style="color: #00bfff;">{{ film.status }}</span></p>
+                            <p class="film-duration">Durée : <span style="color: #00bfff;">{{ film.duree }} min</span></p>
+                        </div>
+                        <p class="film-synopsis mt-4" style="color: #e0e0e0; font-size: 1rem; line-height: 1.6;">
+                            {{ film.synopsis }} 
+                        </p>
+                        <div class="film-rating mt-3" style="font-size: 1.2rem; color: #ffd700;">
+                            Note : ⭐ {{ film.ntmoy }}/10
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock detail %}
+
